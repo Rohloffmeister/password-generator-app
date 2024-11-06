@@ -1,7 +1,3 @@
-# Frontend Mentor - Password generator app
-
-![Design preview for the Password generator app coding challenge](./preview.jpg)
-
 ## Welcome! 👋
 
 Thanks for purchasing this premium Frontend Mentor coding challenge.
