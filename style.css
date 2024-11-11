@@ -39,6 +39,7 @@ header {
 }
 .slider input {
   width: 100%;
+
 }
 
 header p {
@@ -117,6 +118,7 @@ input[type="checkbox"]:checked::before {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-self: center;
   
 }
 .strength p {
@@ -139,11 +141,13 @@ input[type="checkbox"]:checked::before {
 }
 .options {
   width: 90%;
+  align-self: center;
 }
 form{
     display: flex;
     flex-direction: column;
     width: 90%;
+    
 }
 .btn {
   border: none;
@@ -151,6 +155,11 @@ form{
   width: 90%;
   height: 50px;
   margin: 20px 0px;
+  background-image: url(assets/images/icon-arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  align-self: center;
+  
 }
 
 .back-green{
