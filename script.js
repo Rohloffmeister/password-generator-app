@@ -33,12 +33,13 @@ document.querySelector(".options").addEventListener("change", function (event) {
   if (event.target.type === "checkbox") {
     if (
     !includeLowercaseCheckbox.checked &&
-    !includeUppercaseCheckbox.checked)
+    !includeUppercaseCheckbox.checked &&
+    !includeNumbersCheckbox.checked &&
+    !includeSymbolsCheckbox.checked
+  )
     {
-      event.target === includeLowercaseCheckbox ?
-      includeUppercaseCheckbox.checked = true :
-      includeLowercaseCheckbox.checked = true;
-    }
+      event.target.checked = true;
+        }
     calculateStrength();
   }
 
@@ -64,7 +65,6 @@ function calculateStrength() {
   strength = includeNumbersCheckbox.checked ? strength *= 1.1 : strength;
   strength = includeSymbolsCheckbox.checked ? strength *= 1.1 : strength;
   strength = Math.floor(strength);
-  console.log(strength);
 
   if (strength > 20) {
     //STRONG
