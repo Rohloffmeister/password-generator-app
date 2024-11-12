@@ -18,8 +18,8 @@
       <p>Password Generator</p>
       <section class="result">
        <!-- <p id="result">P4$5W0rD!</p>-->
-        <input type="text" placeholder="P4$5W0rD!" readonly id="result">
-        <img id="copy-icon" onclick="copyToClipboard()" src="assets/images/icon-copy.svg" />
+        <input aria-label="Password result" type="text" placeholder="P4$5W0rD!" readonly id="result">
+        <img id="copy-icon" onclick="copyToClipboard()" alt="copy icon" src="assets/images/icon-copy.svg" />
       </section>
     </header>
 
@@ -32,22 +32,22 @@
             <p>Character Length</p>
             <p id="slider-value">10</p>
           </div>
-          <input id="character-length"  name="character-length" type="range" value="10" min="0" max="20" />
+          <input aria-label="Password length" id="character-length"  name="character-length" type="range" value="10" min="0" max="20" />
         </div>
         <div class="checkbox">
-          <input id="include-uppercase" class="upper-lower-checkbox" checked name="include-uppercase" type="checkbox" />
+          <input aria-label="Include Uppercase Letters checkbox" id="include-uppercase" class="upper-lower-checkbox" checked name="include-uppercase" type="checkbox" />
           <p>Include Uppercase Letters</p>
         </div>
         <div class="checkbox">
-          <input id="include-lowercase" class="upper-lower-checkbox" name="include-lowercase" type="checkbox" />
+          <input aria-label="Include Lowercase Letters checkbox" id="include-lowercase" class="upper-lower-checkbox" name="include-lowercase" type="checkbox" />
           <p>Include Lowercase Letters</p>
         </div>
         <div class="checkbox">
-          <input id="include-numbers" name="include-numbers" type="checkbox" />
+          <input id="include-numbers" aria-label="Include Numbers checkbox" name="include-numbers" type="checkbox" />
           <p>Include Numbers</p>
         </div>
         <div class="checkbox">
-          <input id="include-symbols" value="off" name="include-symbols" type="checkbox" />
+          <input id="include-symbols" aria-label="Include Symbols checkbox" value="off" name="include-symbols" type="checkbox" />
           <p>Include Symbols</p>
         </div>
       </section>
@@ -61,7 +61,7 @@
           <div id="bar-3" class="bar"></div>
         </div>
       </div>
-      <button type="submit" class="btn"><p>Generate<p><img src="assets/images/icon-arrow-right.svg"></button>
+      <button type="submit" class="btn"><p>Generate<p><img alt="right facing arrow" src="assets/images/icon-arrow-right.svg"></button>
       </form>
     </main>
   </body>

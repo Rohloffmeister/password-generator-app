@@ -55,7 +55,6 @@ form.addEventListener("submit", function (event) {
   includeNumbers = formData.get("include-numbers");
   includeSymbols = formData.get("include-symbols");
   characterLength = parseInt(formData.get("character-length"));
-
   createPassword();
 });
 function calculateStrength() {
