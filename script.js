@@ -15,8 +15,6 @@ const passwordResult = document.getElementById("result");
 const sliderValueContainer = document.getElementById("slider-value");
 const copyIcon = document.getElementById("copy-icon");
 
-
-
 slider.addEventListener("input", function () {
   const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
 
@@ -141,7 +139,7 @@ function createPassword() {
     const randomIndex = Math.floor(Math.random() * functionList.length);
     password += functionList[randomIndex]();
   }
-  passwordResult.innerHTML = password;
+  passwordResult.value = password;
 }
 
 function randomLetter(lowercase) {
@@ -160,10 +158,9 @@ function randomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-function copyToClipboard(){
+function copyToClipboard() {
   console.log("Copied");
-  copyText = passwordResult.innerHTML;
+  copyText = passwordResult.value;
 
-  navigator.clipboard.writeText(copyText)
-
+  navigator.clipboard.writeText(copyText);
 }

@@ -15,6 +15,10 @@ header img:hover {
 header img:active {
   filter: contrast(0);
 }
+html{
+  min-width: 320px;
+
+}
 
 body {
   font-family: "JetBrains Mono";
@@ -56,6 +60,21 @@ header p {
   font-size: 20px;
   text-align: center;
 }
+header input {
+  margin: 15px 0px;
+  color: var(--white);
+  font-size: 20px;
+  text-align: center;
+  background-color: var(--not-so-dark-gray);
+  border:none;
+}
+header input[type="text"]{
+text-align: left;
+}
+header input:focus{
+  border:none;
+  outline:none;
+}
 
 .result {
   display: flex;
@@ -79,11 +98,16 @@ main {
   align-items: center;
   max-width: 600px;
 }
+.checkbox p {
+  margin-left: 5px;
+  text-wrap:nowrap
+}
 
 .checkbox {
   display: flex;
   flex-direction: row;
   align-items: center;
+  
 }
 input[type="checkbox"] {
   content: "";
@@ -91,7 +115,6 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   display: flex;
   align-content: center;
-
   justify-content: center;
   font-size: 2rem;
   border: 1px solid white;
@@ -164,6 +187,7 @@ form {
   width: 90%;
 }
 .btn {
+  font-family: inherit;
   border: none;
   background-color: var(--light-neon-green);
   width: 90%;
