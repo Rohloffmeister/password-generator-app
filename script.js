@@ -60,10 +60,10 @@ form.addEventListener("submit", function (event) {
 });
 function calculateStrength() {
   let strength = slider.value;
-  strength = includeUppercaseCheckbox.checked ? strength *= 1.1 : strength;
-  strength = includeLowercaseCheckbox.checked ? strength *= 1.1 : strength;
-  strength = includeNumbersCheckbox.checked ? strength *= 1.1 : strength;
-  strength = includeSymbolsCheckbox.checked ? strength *= 1.1 : strength;
+  strength = includeUppercaseCheckbox.checked ? strength *= 1.2 : strength;
+  strength = includeLowercaseCheckbox.checked ? strength *= 1.2 : strength;
+  strength = includeNumbersCheckbox.checked ? strength *= 1.2 : strength;
+  strength = includeSymbolsCheckbox.checked ? strength *= 1.2 : strength;
   strength = Math.floor(strength);
 
   if (strength > 20) {
