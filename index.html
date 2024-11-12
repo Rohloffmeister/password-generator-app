@@ -18,9 +18,11 @@
       <p>Password Generator</p>
       <section class="result">
         <p id="result">P4$5W0rD!</p>
-        <img src="assets/images/icon-copy.svg" />
+        <img id="copy-icon" onclick="copyToClipboard()" src="assets/images/icon-copy.svg" />
       </section>
     </header>
+
+    
     <main>
       <form id="form">
       <section class="options">
@@ -29,7 +31,7 @@
             <p>Character Length</p>
             <p  id="slider-value">10</p>
           </div>
-          <input id="character-length"  name="character-length" type="range" value="10" min="1" max="20" />
+          <input id="character-length"  name="character-length" type="range" value="10" min="0" max="20" />
         </div>
         <div class="checkbox">
           <input id="include-uppercase" class="upper-lower-checkbox" checked name="include-uppercase" type="checkbox" />

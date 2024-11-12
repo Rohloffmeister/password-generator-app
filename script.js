@@ -13,8 +13,15 @@ const includeSymbolsCheckbox = document.getElementById("include-symbols");
 const slider = document.getElementById("character-length");
 const passwordResult = document.getElementById("result");
 const sliderValueContainer = document.getElementById("slider-value");
+const copyIcon = document.getElementById("copy-icon");
 
 
+
+slider.addEventListener("input", function () {
+  const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+
+  slider.style.background = `linear-gradient(to right, var(--light-neon-green) ${value}%, var(--dark-gray) ${value}%)`;
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form");
@@ -105,48 +112,58 @@ function removeColorClasses(e) {
 }
 
 function createPassword() {
-    let password = '';
-    let functionList = [];
-    let checkBoxCount = 0;
+  let password = "";
+  let functionList = [];
+  let checkBoxCount = 0;
 
-    if (includeLowercase) {
-        checkBoxCount++;
-        functionList.push(() => randomLetter(true));
-    }
-    if (includeUppercase) {
-        checkBoxCount++;
-        functionList.push(() => randomLetter(false));
-    }
-    if (includeNumbers) {
-        checkBoxCount++;
-        functionList.push(randomNumber);
-    }
-    if (includeSymbols) {
-        checkBoxCount++;
-        functionList.push(randomSymbol);
-    }
+  if (includeLowercase) {
+    checkBoxCount++;
+    functionList.push(() => randomLetter(true));
+  }
+  if (includeUppercase) {
+    checkBoxCount++;
+    functionList.push(() => randomLetter(false));
+  }
+  if (includeNumbers) {
+    checkBoxCount++;
+    functionList.push(randomNumber);
+  }
+  if (includeSymbols) {
+    checkBoxCount++;
+    functionList.push(randomSymbol);
+  }
 
-    if (checkBoxCount === 0) {
-        return "Bitte wähle mindestens eine Zeichenart aus.";
-    }
+  if (checkBoxCount === 0) {
+    return "Bitte wähle mindestens eine Zeichenart aus.";
+  }
 
-    for (let i = 0; i < characterLength; i++) {
-        const randomIndex = Math.floor(Math.random() * functionList.length);
-        password += functionList[randomIndex]();
-    }
-    passwordResult.innerHTML=password;
+  for (let i = 0; i < characterLength; i++) {
+    const randomIndex = Math.floor(Math.random() * functionList.length);
+    password += functionList[randomIndex]();
+  }
+  passwordResult.innerHTML = password;
 }
 
 function randomLetter(lowercase) {
-    const letters = lowercase ? 'abcdefghijklmnopqrstuvwxyz' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    return letters[Math.floor(Math.random() * letters.length)];
+  const letters = lowercase
+    ? "abcdefghijklmnopqrstuvwxyz"
+    : "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return letters[Math.floor(Math.random() * letters.length)];
 }
 
 function randomNumber() {
-    return Math.floor(Math.random() * 10).toString();
+  return Math.floor(Math.random() * 10).toString();
 }
 
 function randomSymbol() {
-    const symbols = '!@#$%^&*()_+-=[]{}|;:,.?';
-    return symbols[Math.floor(Math.random() * symbols.length)];
+  const symbols = "!@#$%^&*()_+-=[]{}|;:,.?";
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+function copyToClipboard(){
+  console.log("Copied");
+  copyText = passwordResult.innerHTML;
+
+  navigator.clipboard.writeText(copyText)
+
 }
