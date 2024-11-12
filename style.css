@@ -15,9 +15,8 @@ header img:hover {
 header img:active {
   filter: contrast(0);
 }
-html{
+html {
   min-width: 320px;
-  overflow-y: scroll;
 
 }
 
@@ -27,9 +26,9 @@ body {
   background-color: var(--dark-gray);
   display: flex;
   flex-direction: column;
+  min-height:90vh;
   justify-content: center;
   align-items: center;
-  height: 95vh;
 }
 header {
   width: 90%;
@@ -65,17 +64,17 @@ header input {
   width: 80%;
   margin: 15px 0px;
   color: var(--white);
-  font-size: clamp(0.8rem,4vw,1.5rem);
+  font-size: clamp(0.8rem, 4vw, 1.5rem);
   text-align: center;
   background-color: var(--not-so-dark-gray);
-  border:none;
+  border: none;
 }
-header input[type="text"]{
-text-align: left;
+header input[type="text"] {
+  text-align: left;
 }
-header input:focus{
-  border:none;
-  outline:none;
+header input:focus {
+  border: none;
+  outline: none;
 }
 
 .result {
@@ -99,17 +98,18 @@ main {
   justify-content: center;
   align-items: center;
   max-width: 600px;
+  
+
 }
 .checkbox p {
   margin-left: 5px;
-  text-wrap:nowrap
+  text-wrap: nowrap;
 }
 
 .checkbox {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
 }
 input[type="checkbox"] {
   content: "";
@@ -195,10 +195,15 @@ form {
   width: 90%;
   height: 50px;
   margin: 20px 0px;
-  background-image: url(assets/images/icon-arrow-right.svg);
   background-repeat: no-repeat;
   background-position: right;
   align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
 }
 
 .back-green {
@@ -233,3 +238,4 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid var(--light-neon-green);
   appearance: none;
 }
+
