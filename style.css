@@ -17,6 +17,7 @@ header img:active {
 }
 html{
   min-width: 320px;
+  overflow-y: scroll;
 
 }
 
@@ -28,7 +29,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 95vh;
 }
 header {
   width: 90%;
@@ -61,9 +62,10 @@ header p {
   text-align: center;
 }
 header input {
+  width: 80%;
   margin: 15px 0px;
   color: var(--white);
-  font-size: 20px;
+  font-size: clamp(0.8rem,4vw,1.5rem);
   text-align: center;
   background-color: var(--not-so-dark-gray);
   border:none;

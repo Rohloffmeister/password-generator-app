@@ -13,38 +13,35 @@ const includeSymbolsCheckbox = document.getElementById("include-symbols");
 const slider = document.getElementById("character-length");
 const passwordResult = document.getElementById("result");
 const sliderValueContainer = document.getElementById("slider-value");
-const copyIcon = document.getElementById("copy-icon");
+
 
 slider.addEventListener("input", function () {
-  const value = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+  sliderValueContainer.innerHTML = this.value;
+  calculateStrength();
+  const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
 
   slider.style.background = `linear-gradient(to right, var(--light-neon-green) ${value}%, var(--dark-gray) ${value}%)`;
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("form");
+
   calculateStrength();
   console.log(randomSymbol());
 });
 
-includeNumbersCheckbox.addEventListener("change", calculateStrength);
-includeSymbolsCheckbox.addEventListener("change", calculateStrength);
-
-includeLowercaseCheckbox.addEventListener("change", function () {
-  if (!includeLowercaseCheckbox.checked && !includeUppercaseCheckbox.checked) {
-    includeLowercaseCheckbox.checked = true;
+document.querySelector(".options").addEventListener("change", function (event) {
+  if (event.target.type === "checkbox") {
+    if (
+    !includeLowercaseCheckbox.checked &&
+    !includeUppercaseCheckbox.checked)
+    {
+      event.target === includeLowercaseCheckbox ?
+      includeUppercaseCheckbox.checked = true :
+      includeLowercaseCheckbox.checked = true;
+    }
+    calculateStrength();
   }
-  calculateStrength();
-});
-includeUppercaseCheckbox.addEventListener("change", function () {
-  if (!includeLowercaseCheckbox.checked && !includeUppercaseCheckbox.checked) {
-    includeUppercaseCheckbox.checked = true;
-  }
-  calculateStrength();
-});
 
-slider.addEventListener("input", function () {
-  sliderValueContainer.innerHTML = slider.value;
   calculateStrength();
 });
 
@@ -63,10 +60,10 @@ form.addEventListener("submit", function (event) {
 });
 function calculateStrength() {
   let strength = slider.value;
-  strength = includeUppercaseCheckbox.checked ? (strength *= 1.1) : strength;
-  strength = includeLowercaseCheckbox.checked ? (strength *= 1.1) : strength;
-  strength = includeNumbersCheckbox.checked ? (strength *= 1.1) : strength;
-  strength = includeSymbolsCheckbox.checked ? (strength *= 1.1) : strength;
+  strength = includeUppercaseCheckbox.checked ? strength *= 1.1 : strength;
+  strength = includeLowercaseCheckbox.checked ? strength *= 1.1 : strength;
+  strength = includeNumbersCheckbox.checked ? strength *= 1.1 : strength;
+  strength = includeSymbolsCheckbox.checked ? strength *= 1.1 : strength;
   strength = Math.floor(strength);
   console.log(strength);
 
@@ -143,9 +140,9 @@ function createPassword() {
 }
 
 function randomLetter(lowercase) {
-  const letters = lowercase
-    ? "abcdefghijklmnopqrstuvwxyz"
-    : "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const letters = lowercase ?
+  "abcdefghijklmnopqrstuvwxyz" :
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return letters[Math.floor(Math.random() * letters.length)];
 }
 
@@ -156,11 +153,4 @@ function randomNumber() {
 function randomSymbol() {
   const symbols = "!@#$%^&*()_+-=[]{}|;:,.?";
   return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
-function copyToClipboard() {
-  console.log("Copied");
-  copyText = passwordResult.value;
-
-  navigator.clipboard.writeText(copyText);
 }
